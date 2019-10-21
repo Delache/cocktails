@@ -1,3 +1,4 @@
+import { CocktailComponent } from './cocktail/cocktail.component';
 import { CocktailListComponentComponent } from './cocktail-list-component/cocktail-list-component.component';
 import { CocktailService } from './service/cocktail.service';
 import { TestBed, async } from '@angular/core/testing';
@@ -6,7 +7,8 @@ describe('Quest Test Suite', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CocktailListComponentComponent
+        CocktailListComponentComponent,
+        CocktailComponent
       ],
     }).compileComponents();
   }));

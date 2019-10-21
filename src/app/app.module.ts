@@ -16,7 +16,6 @@ import { CocktailComponent } from './cocktail/cocktail.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [CocktailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

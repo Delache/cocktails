@@ -1,6 +1,8 @@
 import { CocktailComponent } from './../cocktail/cocktail.component';
 import { Cocktail } from './../../models/cocktail';
+import { Injectable } from '@angular/core';
 
+@Injectable({providedIn: 'root'})
 export class CocktailService {
   public cocktails: Cocktail[] = [
     {name: 'Blue Lagoon',
