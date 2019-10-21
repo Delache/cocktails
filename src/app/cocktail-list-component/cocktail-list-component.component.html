@@ -1,0 +1,9 @@
+<h1>OUR COCKTAILS</h1>
+<hr>
+<div>
+  <app-cocktail *ngFor="let cocktail of this.cocktails"
+    [cocktailName] = 'cocktail.name'
+    [cocktailPrice] = 'cocktail.price'
+    [cocktailImg] = 'cocktail.img'>
+  </app-cocktail>
+</div>
