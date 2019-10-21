@@ -10,14 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cocktail-list-component.component.scss']
 })
 
-
-
 export class CocktailListComponentComponent implements OnInit {
   cocktails: any[];
-  constructor(private cocktailService: CocktailService) { }
+  constructor(public cocktailService: CocktailService) { }
 
   ngOnInit() {
-    this.cocktails = this.cocktailService.cocktails;
+    this.cocktails = this.cocktailService.getCocktails();
   }
-
 }
