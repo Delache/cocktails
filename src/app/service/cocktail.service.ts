@@ -1,9 +1,11 @@
 import { CocktailComponent } from './../cocktail/cocktail.component';
 import { Cocktail } from './../../models/cocktail';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({providedIn: 'root'})
 export class CocktailService {
+  constructor(private httpClient: HttpClient) { }
   public cocktails: Cocktail[] = [
     {name: 'Blue Lagoon',
     price: 7,
