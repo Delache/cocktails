@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CocktailListComponentComponent } from './cocktail-list-component/cocktail-list-component.component';
 import { CocktailComponent } from './cocktail/cocktail.component';
+import { HttpClient } from 'selenium-webdriver/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,6 +15,7 @@ import { CocktailComponent } from './cocktail/cocktail.component';
   ],
   imports: [
     BrowserModule,
+    HttpClient,
     AppRoutingModule
   ],
   bootstrap: [AppComponent]
