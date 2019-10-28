@@ -1,3 +1,5 @@
+import { CocktailListComponentComponent } from './../cocktail-list-component/cocktail-list-component.component';
+import { Cocktail } from './../../models/cocktail';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,12 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./cocktail.component.scss']
 })
 export class CocktailComponent implements OnInit {
-  @Input() cocktailName: string;
-  @Input() cocktailPrice: number;
-  @Input() cocktailImg: string;
+  @Input() cocktail: Cocktail;
   constructor() { }
 
   ngOnInit() {
   }
-
 }

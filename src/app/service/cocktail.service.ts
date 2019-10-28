@@ -1,27 +1,27 @@
-import { CocktailComponent } from './../cocktail/cocktail.component';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Cocktail } from './../../models/cocktail';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class CocktailService {
-  constructor(private httpClient: HttpClient) { }
-  public cocktails: Cocktail[] = [
-    {name: 'Blue Lagoon',
-    price: 7,
-    img: 'https://assets.afcdn.com/recipe/20190222/88136_w420h344c1cx2736cy1824cxt0cyt0cxb5466cyb3641.jpg'
-    }, {name: 'Strawberry Tequila',
-    price: 6.5,
-    img: 'https://kitchenswagger.com/wp-content/uploads/2015/11/strawberry-cucumber-cocktail2.jpg'},
-    {name: 'Blue Lagoon',
-    price: 7,
-    img: 'https://assets.afcdn.com/recipe/20190222/88136_w420h344c1cx2736cy1824cxt0cyt0cxb5466cyb3641.jpg'
-    }, {name: 'Strawberry Tequila',
-    price: 6.5,
-    img: 'https://kitchenswagger.com/wp-content/uploads/2015/11/strawberry-cucumber-cocktail2.jpg'}
-  ];
+  private service: HttpClient;
+  constructor(param_service: HttpClient) {
+    this.service = param_service;
+  }
 
-getCocktails() {
-  return this.cocktails;
-}
+  public getCocktails(): Observable<Cocktail[]> {
+    return this.service
+      .get('assets/cocktails.json')
+      .pipe(map(this.jasonToCocktail));
+  }
+
+  private jasonToCocktail(cocktails: any[]): Cocktail[] {
+    return cocktails.map((cocktail) => {
+      return new Cocktail(cocktail);
+    });
+  }
 }

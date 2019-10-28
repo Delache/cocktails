@@ -11,10 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CocktailListComponentComponent implements OnInit {
-  cocktails: any[];
-  constructor(public cocktailService: CocktailService) { }
+  public cocktails: Cocktail[];
+  public service: CocktailService;
 
-  ngOnInit() {
-    this.cocktails = this.cocktailService.getCocktails();
+  constructor(public param_service: CocktailService) {
+    this.service = param_service;
+  }
+
+  public ngOnInit(): void {
+    this.service.getCocktails().subscribe((cocktails: Cocktail[]) => {
+      this.cocktails = cocktails;
+    });
   }
 }
